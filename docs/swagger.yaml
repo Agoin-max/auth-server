@@ -1,0 +1,71 @@
+definitions:
+  handlers.UserLoginRequest:
+    properties:
+      password:
+        description: 密码
+        type: string
+      user_name:
+        description: 用户名
+        type: string
+    type: object
+  handlers.UserRegisterRequest:
+    properties:
+      password:
+        description: 密码
+        type: string
+      user_name:
+        description: 用户名
+        type: string
+    type: object
+  tools.ResponseStruct:
+    properties:
+      code:
+        description: 状态码
+        type: integer
+      data:
+        description: 数据结构体
+      msg:
+        description: 相应说明
+        type: string
+    type: object
+info:
+  contact: {}
+  description: Auth-server
+  title: Auth-Server API
+  version: "1.0"
+paths:
+  /user/login:
+    post:
+      description: 用户登录
+      parameters:
+      - description: Json请求体
+        in: body
+        name: object
+        schema:
+          $ref: '#/definitions/handlers.UserLoginRequest'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/tools.ResponseStruct'
+      summary: 用户登录
+      tags:
+      - User
+  /user/register:
+    post:
+      description: 用户注册
+      parameters:
+      - description: Json请求体
+        in: body
+        name: object
+        schema:
+          $ref: '#/definitions/handlers.UserRegisterRequest'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/tools.ResponseStruct'
+      summary: 用户注册
+      tags:
+      - User
+swagger: "2.0"

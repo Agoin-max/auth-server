@@ -1,0 +1,34 @@
+server:
+  runMode: debug
+  port: 8080
+  readTimeout: 60
+  writeTimeout: 60
+
+jwt:
+  secret: LAT7ICSAOTNS7U9VIKRPPBGXXSAYXXF4
+
+mysql:
+  dns: root:123456@tcp(127.0.0.1:3306)/auth-server?charset=utf8mb4&parseTime=True&loc=Local
+
+redis:
+  addr: 127.0.0.1:6379
+  password:
+  DB: 0
+  poolSize: 30
+  minIdleConn: 30
+
+serve:
+  host: 0.0.0.0
+  port: 8886
+
+rabbitmq:
+  dns: amqp://admin:admin@127.0.0.1:5672/
+  exchange: auth-server
+  queueRange: 3
+
+s3:
+  endpoint: http://127.0.0.1:9000
+  accessKeyID: minioadmin
+  secretAccessKey: minioadmin
+  useSSL: false
+  bucketName: auth-server
